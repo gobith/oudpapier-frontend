@@ -1,39 +1,14 @@
-<script>
-  import users from "./stores/users-store.ts";
-  import years from "./stores/years-store.ts";
+<script lang="ts">
+  import users from "./stores/users-store";
+  import years from "./stores/years-store";
+  import ScheduleYears from "./ScheduleYears.svelte";
 </script>
 
-<main>
-  {#if $users}
-    {#each $users as user}
-      <div>{user.name}</div>
-    {/each}
-  {/if}
+{#if $users}
   {#if $years}
-    {#each $years as year}
-      <div>{year.year}</div>
-    {/each}
+    <ScheduleYears users={$users} years={$years} yearIndex={0} />
   {/if}
-</main>
+{/if}
 
 <style>
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-  }
-
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
-  }
 </style>
