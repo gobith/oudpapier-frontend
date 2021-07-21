@@ -6,6 +6,9 @@
   export let yearIndex;
 
   $: year = years[yearIndex];
+  $: scheduleUsers = users.filter((user) => {
+    return user.showInSchedule;
+  });
 
   const forewards = () => {
     if (yearIndex === 0) {
@@ -24,11 +27,19 @@
   };
 </script>
 
-<div>
-  <button on:click={backwards}>&#8592;</button>
-  <button on:click={forewards}>&#8594;</button>
-  <ScheduleYear {year} {users} />
+<div class="container">
+  <div class="schedule">
+    <button on:click={backwards}>&#8592;</button>
+    <button on:click={forewards}>&#8594;</button>
+    <ScheduleYear {year} users={scheduleUsers} />
+  </div>
 </div>
 
 <style>
+  .container {
+  }
+  .schedule {
+    margin: 0 auto;
+    width: 800px;
+  }
 </style>

@@ -1,7 +1,7 @@
 <script lang="ts">
   import users from "./stores/users-store";
   import years from "./stores/years-store";
-  import ScheduleYears from "./ScheduleYears.svelte";
+  import ScheduleYears from "./schedule/ScheduleYears.svelte";
 </script>
 
 {#if $users}
@@ -11,4 +11,8 @@
 {/if}
 
 <style>
+  :global(*) {
+    box-sizing: border-box;
+    font-size: 12px;
+  }
 </style>
