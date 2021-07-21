@@ -12,6 +12,9 @@
         font-size: 1rem;
     }
     .container:hover {
-        background-color: blue;
+        border-right: 2px solid blue;
+        border-bottom: 2px solid blue;
+        border-top: 1px solid blue;
+        border-left: 2px solid blue;
     }
 </style>

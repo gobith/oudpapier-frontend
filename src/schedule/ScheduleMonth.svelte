@@ -1,15 +1,23 @@
 <script lang="ts">
     import ScheduleDay from "./ScheduleDay.svelte";
+    import SchedulePartTime from "./SchedulePartTime.svelte";
     export let month;
     export let users;
-    let numberOfColumns = month.days.length;
+    $: numberOfColumns = month.numberOfColumns;
 </script>
 
 <div>
-    <div class="title">{month.month}</div>
     <div class="columns" style="--number-of-columns: {numberOfColumns}">
+        <div class="title" style="--grid-column-end: {numberOfColumns}">
+            {month.month}
+        </div>
         {#each month.days as day}
-            <ScheduleDay {day} {users} />
+            <ScheduleDay {day} />
+        {/each}
+        {#each month.days as day}
+            {#each day.partTimes as partTime}
+                <SchedulePartTime {partTime} {users} />
+            {/each}
         {/each}
     </div>
 </div>
@@ -19,6 +27,7 @@
         text-align: center;
         border-bottom: 1px solid gray;
         border-right: 1px solid gray;
+        grid-column-end: span var(--grid-column-end);
     }
     .columns {
         display: grid;
