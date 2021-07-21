@@ -76,7 +76,8 @@ export default {
 				// this will route all traffic starting with
 				// `/api` to http://localhost:8181/api
 				proxy: {
-				  users: 'http://localhost:8090'
+				  users: 'http://localhost:8090',
+				  years: 'http://localhost:8090'
 				}
 			  }
 
