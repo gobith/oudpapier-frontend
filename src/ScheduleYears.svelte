@@ -24,9 +24,11 @@
   };
 </script>
 
-<button on:click={backwards}>&#8592;</button>
-<button on:click={forewards}>&#8594;</button>
-<ScheduleYear {year} {users} />
+<div>
+  <button on:click={backwards}>&#8592;</button>
+  <button on:click={forewards}>&#8594;</button>
+  <ScheduleYear {year} {users} />
+</div>
 
 <style>
 </style>
