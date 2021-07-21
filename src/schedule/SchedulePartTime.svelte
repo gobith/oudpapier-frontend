@@ -16,5 +16,7 @@
         text-align: center;
         border-bottom: 1px solid gray;
         border-right: 1px solid gray;
+        padding-right: 0.3rem;
+        padding-left: 0.3rem;
     }
 </style>

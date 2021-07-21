@@ -40,6 +40,7 @@
   }
   .schedule {
     margin: 0 auto;
-    width: 800px;
+
+    width: 66rem;
   }
 </style>

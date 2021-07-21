@@ -11,4 +11,7 @@
         border-right: 1px solid gray;
         font-size: 1rem;
     }
+    .container:hover {
+        background-color: blue;
+    }
 </style>

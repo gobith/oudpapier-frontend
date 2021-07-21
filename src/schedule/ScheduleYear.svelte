@@ -17,6 +17,5 @@
   .columns {
     display: grid;
     grid-template-columns: repeat(12, auto);
-    /* gap: 4px; */
   }
 </style>
