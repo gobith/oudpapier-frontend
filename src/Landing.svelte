@@ -37,7 +37,6 @@
   }
 
   .overlay-top {
-    justify-self: end;
   }
 
   .overlay-bottom {
@@ -46,7 +45,7 @@
   }
 
   h1 {
-    font-size: 9rem;
+    font-size: clamp(3rem, 5vw, 9rem);
     color: rgba(255, 255, 255, 0.8);
     padding: 3rem;
   }
