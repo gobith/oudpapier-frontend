@@ -9,6 +9,16 @@
   $: loggedIn = false;
 
   const login = () => {
+    let url = "/login";
+    let username = "Georges Kerssies";
+    let password = "1275";
+    let headers = new Headers();
+    headers.set("Authorization", "Basic " + btoa(username + ":" + password));
+
+    fetch(url, { method: "GET", headers: headers })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+
     loggedIn = true;
   };
 
@@ -121,7 +131,7 @@
 
   button:hover,
   nav a:hover {
-    color: #e4032e;
+    color: rgba(236, 25, 33, 1);
     text-decoration: none;
   }
 
