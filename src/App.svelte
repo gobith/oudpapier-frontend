@@ -5,8 +5,7 @@
   import Inschrijven from "./user/Inschrijven.svelte";
   import Rooster from "./user/Rooster.svelte";
   import Landing from "./Landing.svelte";
-
-  $: loggedIn = false;
+  import userStore from "./stores/user-store";
 
   const login = () => {
     let url = "/login";
@@ -18,65 +17,59 @@
     fetch(url, { method: "GET", headers: headers })
       .then((response) => response.json())
       .then((json) => console.log(json));
-
-    loggedIn = true;
   };
 
-  const logout = () => {
-    loggedIn = false;
-  };
+  const logout = () => {};
 </script>
 
-<div class="container">
-  <nav>
-    <ul>
-      {#if loggedIn}
-        <li>
-          <a href="./algemeen" use:link>Algemeen</a>
-        </li>
-        <li>
-          <a href="./inschrijven" use:link>Inschrijven</a>
-        </li>
-        <li>
-          <a href="./rooster" use:link>Rooster</a>
-        </li>
-      {/if}
-      <li>
-        <a href="./" use:link
-          ><img
-            class="logo"
-            src="logo-ac-waterland-100x100px.png"
-            alt="acw"
-          /></a
-        >
-      </li>
-      {#if loggedIn}
-        <li><button on:click={logout}>Uitloggen</button></li>
-      {:else}
-        <li><button on:click={login}>Inloggen</button></li>
-      {/if}
-    </ul>
-  </nav>
+<div>
+  {#if $userStore.loggedIn}
+    <div class="container">
+      <nav>
+        <ul>
+          <li>
+            <a href="./algemeen" use:link>Algemeen</a>
+          </li>
+          <li>
+            <a href="./inschrijven" use:link>Inschrijven</a>
+          </li>
+          <li>
+            <a href="./rooster" use:link>Rooster</a>
+          </li>
 
-  <div class="main-content">
-    <Router primary={false}>
-      <Route path="/">
-        <Landing />
-      </Route>
+          <li>
+            <a href="./" use:link
+              ><img
+                class="logo"
+                src="logo-ac-waterland-100x100px.png"
+                alt="acw"
+              /></a
+            >
+          </li>
 
-      <Route path="/algemeen">
-        <Algemeen />
-      </Route>
+          <li><button on:click={logout}>Uitloggen</button></li>
+        </ul>
+      </nav>
 
-      <Route path="/inschrijven">
-        <Inschrijven />
-      </Route>
+      <div class="main-content">
+        <Router primary={false}>
+          <Route path="/algemeen">
+            <Algemeen />
+          </Route>
 
-      <Route path="/rooster">
-        <Rooster />
-      </Route>
-    </Router>
-  </div>
+          <Route path="/inschrijven">
+            <Inschrijven />
+          </Route>
+
+          <Route path="/rooster">
+            <Rooster />
+          </Route>
+        </Router>
+      </div>
+    </div>
+  {:else}
+    <Landing />
+  {/if}
 </div>
 
 <style>
@@ -86,14 +79,12 @@
     box-sizing: border-box;
     font-size: 12px;
   }
-
   :global(body) {
     height: 100vh;
     width: 100vw;
     margin: 0px;
     padding: 0px;
   }
-
   .container {
     display: grid;
     height: 100vh;

@@ -5,25 +5,63 @@
   console.log(decrypted);
 </script>
 
-<div class="showcase" />
-<p>
-  Afgelopen jaar heeft het oud papier team van AC Waterland wederom een kleine
-  200.000kg oud papier opgehaald in Landsmeer. Dit heeft de club, ondanks de
-  coronacrisis, wederom zo’n 8000 euro opgeleverd. Hierdoor kan, mede door jouw
-  inzet, de contributie laag worden gehouden. Heel erg bedankt voor je inzet
-  afgelopen jaar!
-</p>
+<div>
+  <div class="showcase">
+    <div class="overlay">
+      <div class="overlay-top">
+        <button>Login</button>
+      </div>
+      <div />
+      <div />
+      <div class="overlay-bottom">
+        <h1>ACW OUDPAPIER</h1>
+      </div>
+    </div>
+  </div>
+</div>
 
 <style>
   .showcase {
     background-image: url("/20200919_111401.jpg");
     background-size: cover;
     background-position: center;
-    height: calc(100vh - 5rem);
+    height: 100vh;
+    background-blend-mode: difference;
   }
 
-  p {
+  .overlay {
+    background-size: cover;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: min-content 1fr 1fr 1fr;
+  }
+
+  .overlay-top {
+    justify-self: end;
+  }
+
+  .overlay-bottom {
+    align-self: end;
+    justify-self: center;
+  }
+
+  h1 {
+    font-size: 9rem;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 3rem;
+  }
+
+  button {
+    margin: 2rem;
     font-size: 2rem;
-    padding: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(255, 255, 255, 1);
+    /* padding: 1.5rem; */
+    border: 1px solid white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
   }
 </style>
