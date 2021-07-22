@@ -6,7 +6,15 @@
   import Rooster from "./user/Rooster.svelte";
   import Landing from "./Landing.svelte";
 
-  let loggedIn = false;
+  $: loggedIn = false;
+
+  const login = () => {
+    loggedIn = true;
+  };
+
+  const logout = () => {
+    loggedIn = false;
+  };
 </script>
 
 <div class="container">
@@ -32,11 +40,16 @@
           /></a
         >
       </li>
+      {#if loggedIn}
+        <li><button on:click={logout}>Uitloggen</button></li>
+      {:else}
+        <li><button on:click={login}>Inloggen</button></li>
+      {/if}
     </ul>
   </nav>
 
   <div class="main-content">
-    <Router>
+    <Router primary={false}>
       <Route path="/">
         <Landing />
       </Route>
@@ -98,6 +111,15 @@
     height: 5rem;
   }
 
+  button {
+    color: black;
+    background: rgba(255, 255, 255, 1);
+    font-size: 1.5rem;
+    height: 5rem;
+    border: none;
+  }
+
+  button:hover,
   nav a:hover {
     color: #e4032e;
     text-decoration: none;
