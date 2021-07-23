@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-const user = writable({ id: null, name: "", loggedIn: false, isAdmin: false });
+const user = writable({ id: null, name: "", loggedIn: false, isAdmin: false, showAdmin: false });
 
 fetch("/getuser")
   .then((res) => res.text())

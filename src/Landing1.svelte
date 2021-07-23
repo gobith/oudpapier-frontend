@@ -24,43 +24,23 @@
     };
 </script>
 
-<div class="container">
-    <div class="showcase">
-        <div class="overlay">
-            <div class="overlay-top">
-                {#if $userStore.loggedIn}
-                    <button on:click={logout}>Log uit</button>
-                {:else}
-                    <button on:click={login}>Log in</button>
-                {/if}
-            </div>
-            <div />
-            <div />
-            <div class="overlay-bottom">
-                <h1>ACW OUDPAPIER</h1>
-                {#if $userStore.loggedIn}
-                    <p class="under-title" in:fade>Welkom {$userStore.name}</p>
-                {/if}
-            </div>
-        </div>
-    </div>
+<div>
+    <div class="showcase" />
 
-    {#if $userStore.loggedIn}
+    {#if true}
         <div class="info">
             <p>
-                Blahasfdjaspdjfhsadkjfhaskjdfhpsa dhfpsakjdfhpsakjdfhpaskjdf
-                hpaskjdfhpaskjdfhpasfhpaskjdfh paskjdhfpaskjdhfpask
-                jdhfpkjasdhfpkjsadhfpkjsadhfpkjhsadpfkjsdahf psadjfh sajdhf pasd
-                hfpkajsdh fpjkasdh fpkjashd pfkjhas dpkfjh psakjdfh psakjdfh
-                psadf
+                Blahasfdjaspdjfhsadkjfhaskjdfhpsadh fpsakjdfhpsakjdfhpaskjdf
+                hpaskjdfhpaskjdfhpasfhpaskjdfhpaskjdhfpa
+                skjdhfpaskjdhfpkjasdhfpkjsadhfpkjsadhfpkjhsadp fkjsdahf psadjfh
+                sajdhf pasd hfpkajsdh fpjkasdh fpkjashd pfkjhas dpkfjh psakjdfh
+                psakjdfh psadf
             </p>
         </div>
     {/if}
 </div>
 
 <style>
-    .container {
-    }
     .showcase {
         background-image: url("/20200919_111401.jpg");
         background-size: cover;
@@ -78,7 +58,7 @@
     }
 
     .overlay-top {
-        /* justify-self: end; */
+        justify-self: end;
     }
 
     .overlay-bottom {
@@ -97,6 +77,7 @@
         font-size: 2rem;
         background-color: rgba(0, 0, 0, 0.4);
         color: rgba(255, 255, 255, 1);
+        /* padding: 1.5rem; */
         border: 1px solid white;
         cursor: pointer;
     }
