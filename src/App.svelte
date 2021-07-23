@@ -7,18 +7,6 @@
   import Landing from "./Landing.svelte";
   import userStore from "./stores/user-store";
 
-  const login = () => {
-    let url = "/login";
-    let username = "Georges Kerssies";
-    let password = "1275";
-    let headers = new Headers();
-    headers.set("Authorization", "Basic " + btoa(username + ":" + password));
-
-    fetch(url, { method: "GET", headers: headers })
-      .then((response) => response.json())
-      .then((json) => console.log(json));
-  };
-
   const logout = () => {};
 </script>
 
