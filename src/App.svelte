@@ -1,13 +1,18 @@
 <script lang="ts">
-  import { Router, Route } from "svelte-navigator";
-  import { link } from "svelte-navigator";
+  import { Router, Route, navigate, link } from "svelte-navigator";
+
   import Algemeen from "./user/Algemeen.svelte";
   import Inschrijven from "./user/Inschrijven.svelte";
   import Rooster from "./user/Rooster.svelte";
   import Landing from "./Landing.svelte";
   import userStore from "./stores/user-store";
 
-  const logout = () => {};
+  const logout = () => {
+    fetch("/logout")
+      .then((response) => response.json())
+      .then((json) => userStore.set(json));
+    navigate("/");
+  };
 </script>
 
 <div>
@@ -24,6 +29,10 @@
           <li>
             <a href="./rooster" use:link>Rooster</a>
           </li>
+
+          {#if $userStore.isAdmin}
+            <a href="./" use:link>Admin</a>
+          {/if}
 
           <li>
             <a href="./" use:link
@@ -106,6 +115,7 @@
     font-size: 1.5rem;
     height: 5rem;
     border: none;
+    cursor: pointer;
   }
 
   button:hover,

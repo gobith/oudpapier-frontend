@@ -68,6 +68,7 @@ export default {
         years: "http://localhost:8090",
         login: "http://localhost:8090",
         getuser: "http://localhost:8090",
+        logout: "http://localhost:8090"
       },
     }),
   ],
